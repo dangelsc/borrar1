@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejemplo de view</h1>
+    <div></div>
+    <% let i=2  %>
+    <%=i %>
+    <%=dato %>
+    <menu>
+        <ul>
+            <li>persona0</li>
+            <li>persona1</li>
+            <li>persona2</li>
+        </ul>
+    </menu>
+    <ul>
+        <% for(i=0;i<lista.length;i++){ %>
+        <li><%=lista[i].nombre%> - <%=lista[i].ci %></li>
+        <% } %>
+    </ul>    
+</body>
+</html>
