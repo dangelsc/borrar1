@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><% 
+        var action='',boton='';
+        if(_id){
+            action='edit/'+_id;
+            boton='Editar';
+        %>
+        Editar producto
+        <% }else{
+            %>
+                Nuevo producto
+            <%
+            action ='nuevo'
+            boton='Enviar';
+        }
+        %></h1>
+        <form action="/producto/<%=action%>" method="post">
+            <input type="text" value="<%=nombre%>"  name="nombre" placeholder="nombre" id="">
+            <input type="text" value="<%=categoria%>"  name="categoria" placeholder="categoria" id="">
+            <input type="number"value="<%=precio%>"  name="precio" placeholder="precio" id="">
+            <input type="text" value="<%=descripcion%>"  name="descripcion" placeholder="descripcion" id="">
+            <input type="submit" value="<%=boton%>">
+        </form>
+</body>
+</html>

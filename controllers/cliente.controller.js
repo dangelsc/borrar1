@@ -1,11 +1,28 @@
 var Personal = require('../models/personal.model');
 
-var index=function(req,res,next){
-    let x= new Personal({nombre:'tomas'});
+var index=async function(req,res,next){
+    let x= new Personal({nombre:'tomeas'});
+    x.edad=99;
+    //asincrona
     x.save((err,dato)=>{
         console.log(err);
-        console.log(err);
+        console.log(dato);
     });
+    //sincronizada
+    let y = new Personal({edad:88});
+    let dato=await y.save();
+    //asincrona
+    Personal.find({},(err,lista)=>{
+        if(err){
+            console.log("error",err);
+            return;
+        }
+        //if(lista)//verificar si hay datos, para insert,edit,delete
+        //{}
+        console.log("datos de la db",lista);
+        return ;
+    });
+
     //get ->url normal
     console.log("la edad=",req.query.edad);
     console.log("la nombre=",req.query.nombre);

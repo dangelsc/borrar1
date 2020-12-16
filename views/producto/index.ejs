@@ -6,22 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ejemplo de view</h1>
-    <div></div>
-    <% let i=2  %>
-    <%=i %>
-    <%=dato %>
-    <menu>
-        <ul>
-            <li>persona0</li>
-            <li>persona1</li>
-            <li>persona2</li>
-        </ul>
-    </menu>
-    <ul>
-        <% for(i=0;i<lista.length;i++){ %>
-        <li><%=lista[i].nombre%> - <%=lista[i].ci %></li>
-        <% } %>
-    </ul>    
+    <h1>lista de producto</h1>
+    <div style="color: red;"><%=error%></div>
+    <div>
+        <a href="/producto/nuevo">+</a>
+        <table>
+            <tr>
+                <th>nombre</th>
+                <th>precio</th>
+                <th>categoria</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <% for(i=0;i<lista.length;i++){%>
+            <tr>
+                <td><%=lista[i].nombre%></td>
+                <td><%=lista[i].precio%></td>
+                <td><%=lista[i].categoria%></td>
+                <td> <a href="/producto/edit/<%=lista[i]._id%>">editar</a> </td>
+                <td> <a onclick="return confirm('Esta seguro de borrar')" 
+                    href="/producto/borrar/<%=lista[i]._id%>">borrar</a> </td>
+            </tr>
+            <% }%>
+        </table>
+    </div>
+
 </body>
 </html>
