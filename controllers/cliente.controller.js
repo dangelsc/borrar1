@@ -1,4 +1,11 @@
+var Personal = require('../models/personal.model');
+
 var index=function(req,res,next){
+    let x= new Personal({nombre:'tomas'});
+    x.save((err,dato)=>{
+        console.log(err);
+        console.log(err);
+    });
     //get ->url normal
     console.log("la edad=",req.query.edad);
     console.log("la nombre=",req.query.nombre);
@@ -12,7 +19,7 @@ var nuevo=function(req,res,next){
     //get ->url pretty
     console.log("la edad=",req.params.edad);
     console.log("la nombre=",req.params.nombre);
-    return res.render('./cliente/nuevo',{
+    return res.render('./cliente/nuevo/:edad',{
         nombre:req.params.nombre,
         edad:req.params.edad
     });    
@@ -38,3 +45,16 @@ module.exports = {
     borrar:borrar,
     guardar:guardar
 }
+
+/*
+crear la ruta
+categoria
+    mostrar "hola categoria"
+categoria/form
+    dato entrada:
+        nombre
+        descripcion
+categoria/msg
+    mostrar los datos enviado
+
+*/
